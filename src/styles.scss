@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+::ng-deep .toast-container {
+    position: fixed;
+    top: 80px;
+    right: 10px;
+    z-index: 1000;
+    pointer-events: none; // Ensure clicks pass through to elements below if needed
+  }
+  
+  ::ng-deep .toast {
+    min-width: 300px; 
+    padding: 16px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    border-radius: 4px; 
+  
+    .toast-title {
+      font-weight: bold;
+    }
+    
+    .toast-message {
+      margin-left: 8px; 
+    }
+    
+    .toast-icon {
+      font-size: 24px; 
+    }
+  
+    &.toast-success {
+      background-color: #2e7d32; 
+      color: white; 
+    }
+  
+    &.toast-error {
+      background-color: #c62828; 
+      color: white; 
+    }
+  
+    &.toast-warning {
+      background-color: #ff8f00; 
+      color: white; 
+  }
+  
+  ::ng-deep .toast-success .toast-icon {
+    color: #fff; 
+  }
+  
+  ::ng-deep .toast-error .toast-icon {
+    color: #fff; 
+  }
+  
+  ::ng-deep .toast-warning .toast-icon {
+    color: #fff; 
+  }
+}

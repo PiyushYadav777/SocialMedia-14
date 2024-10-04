@@ -1,0 +1,21 @@
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 16px;
+    align-items: right;
+  }
+  
+  .user-menu {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  

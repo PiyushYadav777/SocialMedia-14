@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+  <button mat-button [routerLink]="['/home']">
+    <mat-icon>facebook</mat-icon>
+    MySocialApp
+  </button>
+
+  <span class="spacer"></span>
+  <div class="user-menu" *ngIf="authService.isLoggedIn()">
+    <button mat-button [routerLink]="['/home']" matTooltip="Home">
+      <mat-icon>home</mat-icon> </button>
+    <button mat-button matTooltip="Messages" [routerLink]="['/messages']"><mat-icon>message</mat-icon></button>
+    <button mat-button matTooltip="Notifications" (click)="openNotificationsDialog()"><mat-icon>notifications</mat-icon></button>
+    <button mat-button matTooltip="Profile"[matMenuTriggerFor]="menu"><mat-icon>account_circle</mat-icon></button>
+    <mat-menu #menu="matMenu">
+      <mat-list>
+        <mat-list-item [routerLink]="['/profile']">view_profile</mat-list-item>
+        <mat-list-item [routerLink]="['/change-password']">change_password</mat-list-item>
+      </mat-list>
+    </mat-menu>
+
+    <button mat-button matTooltip="Logout" (click)="logout()"><mat-icon>logout</mat-icon></button>
+  </div>
+</mat-toolbar>

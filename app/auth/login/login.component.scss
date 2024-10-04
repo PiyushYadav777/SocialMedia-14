@@ -1,0 +1,91 @@
+
+// ::ng-deep .mat-snack-bar-container {
+//   position: fixed;
+//   top: 50px;
+//   right: 10px;
+//   color: white;
+//   z-index: 1000;
+//   border-radius: 4px;
+
+//   &.snackbar-container {
+//     min-width: 300px; // Set a minimum width for the snackbar
+//     padding: 16px; // Increase padding for larger size
+//     font-size: 16px; // Increase font size for better readability
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between; // Align content to space between
+    
+//     // Adjust icon size and spacing
+//     .mat-icon {
+//       font-size: 24px; // Set icon size
+//       margin-left: 8px; // Space between text and icon
+//     }
+    
+//     &.error {
+//       background-color: #c62828 !important;
+//     }
+//     &.success {
+//       background-color: #2e7d32 !important;
+//     }
+//     &.warning {
+//       background-color: #ff8f00 !important;
+//     }
+//   }
+// }
+
+
+::ng-deep .toast-container {
+  position: fixed;
+  top: 80px;
+  right: 10px;
+  z-index: 1000;
+  pointer-events: none; // Ensure clicks pass through to elements below if needed
+}
+
+::ng-deep .toast {
+  min-width: 300px; 
+  padding: 16px; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  border-radius: 4px; 
+
+  .toast-title {
+    font-weight: bold;
+  }
+  
+  .toast-message {
+    margin-left: 8px; 
+  }
+  
+  .toast-icon {
+    font-size: 24px; 
+  }
+
+  &.toast-success {
+    background-color: #2e7d32; 
+    color: white; 
+  }
+
+  &.toast-error {
+    background-color: #c62828; 
+    color: white; 
+  }
+
+  &.toast-warning {
+    background-color: #ff8f00; 
+    color: white; 
+}
+
+::ng-deep .toast-success .toast-icon {
+  color: #fff; 
+}
+
+::ng-deep .toast-error .toast-icon {
+  color: #fff; 
+}
+
+::ng-deep .toast-warning .toast-icon {
+  color: #fff; 
+}
+}
