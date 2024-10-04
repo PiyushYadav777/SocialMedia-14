@@ -1,0 +1,125 @@
+<div class="profile-container">
+  <mat-card class="user-profile-card" *ngIf="user">
+    <mat-card-header class="profile-header">
+      <div class="profile-image-container">
+        <img *ngIf="user.profile_img" [src]="FILE_URL + user.profile_img" alt="Profile Picture" class="profile-image">
+      </div>
+      <mat-card-actions class="profile-actions">
+        <button mat-button color="accent" routerLink="/profile/edit-profile">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="profile-details">
+        <mat-list class="user-details-wrapper">
+          <mat-list-item class="user-details-list">
+            <mat-icon>person</mat-icon>
+            <div class="list-item-content">
+              <strong>User Name:</strong>
+              <p>{{ user.first_name }} {{ user.last_name }}</p>
+
+            </div>
+          </mat-list-item>
+
+          <mat-list-item class="user-details-list">
+            <mat-icon>phone</mat-icon>
+            <div class="list-item-content">
+              <span><strong>Phone:</strong></span>
+              <p>{{ user.mobile }}</p>
+            </div>
+          </mat-list-item>
+
+          <mat-list-item class="user-details-list">
+            <mat-icon>male</mat-icon>
+            <div class="list-item-content">
+              <span><strong>Gender:</strong></span>
+              <p>{{ user.gender }}</p>
+            </div>
+          </mat-list-item>
+
+          <mat-list-item class="user-details-list">
+            <mat-icon>public</mat-icon>
+            <div class="list-item-content">
+              <span><strong>Country:</strong></span>
+              <p>{{ user.country }}</p>
+            </div>
+          </mat-list-item>
+
+          <mat-list-item class="user-details-list">
+            <mat-icon>location_on</mat-icon>
+            <div class="list-item-content">
+              <span><strong>State:</strong></span>
+              <p>{{ user.state }}</p>
+            </div>
+          </mat-list-item>
+
+          <mat-list-item class="user-details-list">
+            <mat-icon>location_city</mat-icon>
+            <div class="list-item-content">
+              <span><strong>City:</strong></span>
+              <p>{{ user.city }}</p>
+            </div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="user-post-wrapper">
+    <mat-card class="feed-post" *ngFor="let post of posts">
+      <mat-card-header class="dfsdfsd">
+        <div class="profile-container">
+          <img class="profile-pic" [src]="FILE_URL + user.profile_img"
+            alt="{{ user.first_name + ' ' + user.last_name }}">
+          <div class="profile-info">
+            <mat-card-title>{{ user.first_name + ' ' + user.last_name }}</mat-card-title>
+            <mat-card-subtitle>{{ post.title }}</mat-card-subtitle>
+          </div>
+          <button mat-icon-button [matMenuTriggerFor]="optionsMenu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #optionsMenu="matMenu">
+            <button mat-menu-item>
+              <mat-icon>edit</mat-icon>
+              Edit
+            </button>
+            <button mat-menu-item>
+              <mat-icon>delete</mat-icon>
+              Delete
+            </button>
+          </mat-menu>
+        </div>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ post.desc }}</p>
+        <div class="media-container">
+          <img *ngIf="post.img" [src]="FILE_URL + post.img" class="post-image" />
+          <video *ngIf="post.video" [src]="FILE_URL + post.video" controls class="post-video"></video>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="viewPostDetails(post.id)">
+          <mat-icon>info</mat-icon>
+        </button>
+
+        <!-- <app-like [postId]="post.id" [userId]="userId" [isLiked]="post.is_liked == '1'"></app-like> -->
+
+        <button mat-button (click)="viewPostDetails(post.id)">
+          <mat-icon>comment</mat-icon>
+        </button>
+      </mat-card-actions>
+      <mat-card-content *ngIf="post.comments && post.comments.length > 0">
+        <mat-list>
+          <mat-list-item *ngFor="let comment of post.comments">
+            <img class="profile-pic" [src]="comment.userProfilePic" alt="{{ comment.userName }}">
+            <div mat-line>{{ comment.userName }}: {{ comment.text }}</div>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+      <!-- <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="[5,10, 20, 25]"
+      (page)="onPageChange($event)">
+    </mat-paginator> -->
+    </mat-card>
+  </div>

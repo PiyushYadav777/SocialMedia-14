@@ -1,0 +1,26 @@
+<div class="conversation-page">
+    <mat-card class="conversation-list-card">
+        <button mat-button (click)="closeConversation()" class="close-button"><mat-icon>close</mat-icon></button>
+        <mat-card-content>
+            <mat-spinner *ngIf="messages.length == 0"></mat-spinner>
+            <div *ngIf="messages.length == 0">No messages found.</div>
+            <div *ngIf="messages.length > 0">
+                <mat-list>
+                    <mat-list-item *ngFor="let message of messages"
+                        [ngClass]="{'sent-message': message.sender_id == userId, 'received-message': message.sender_id !== userId}">
+                        <h4 matLine>
+                            {{ message.sender_id == userId ? 'You' : message.sender_first_name }}
+                        </h4>
+                        <p matLine>{{ message.message }}</p>
+                        <img width="12" height="12" src="https://img.icons8.com/material-rounded/24/delete-forever.png" (click)="openDeleteDialog(message.id)" alt="delete-forever"/>
+                    </mat-list-item>
+                </mat-list>
+            </div>
+            <mat-form-field>
+                <textarea matInput [(ngModel)]="newMessage" placeholder="Type your message..."></textarea>
+            </mat-form-field>
+            <img width="64" height="64" src="https://img.icons8.com/arcade/64/sent.png" (click)="sendMessage()"
+                alt="sent" />
+        </mat-card-content>
+    </mat-card>
+</div>
