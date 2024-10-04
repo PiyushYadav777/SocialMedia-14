@@ -1,0 +1,41 @@
+<mat-card class="all-friends-card">
+  <mat-card-header>
+    <mat-card-title>Friends</mat-card-title>
+    <button mat-button [routerLink]="['/home']">Back</button>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-spinner *ngIf="loading"></mat-spinner>
+    <br>
+    <div class="input-group">
+      <div class="form-outline" data-mdb-input-init>
+        <input [(ngModel)]="searchQuery" (ngModelChange)="onSearchChange()" id="search-input" type="search" id="form1"
+          class="form-control" placeholder="Search" />
+        <label class="form-label" for="form1"></label>
+      </div>
+    </div>
+    <div *ngIf="!loading && friends.length == 0">No friends found.</div>
+    <div *ngIf="!loading && friends.length > 0" class="all-friends-card-2">
+      <mat-card-content *ngFor="let friend of friends" class="friend-card">
+        <mat-card-header class="profile-container">
+          <div>
+            <ng-container *ngIf="friend.profile_img; else defaultIcon">
+              <img (click)="openProfile(friend.user_id)" class="profile-pic" [src]="FILE_URL + friend.profile_img"
+                alt="Profile Image">
+            </ng-container>
+            <ng-template #defaultIcon>
+              <mat-icon matCardIcon>person</mat-icon>
+            </ng-template>
+          </div>
+          <img width="24" height="24" class="svg-img" src="https://img.icons8.com/material-rounded/24/comments--v1.png"
+            (click)="openConversation(friend.user_id)" alt="comments--v1" />
+          <mat-card-title class="mb-0" (click)="openProfile(friend.user_id)">
+            {{ friend.first_name }} {{ friend.last_name }}
+          </mat-card-title>
+        </mat-card-header>
+      </mat-card-content>
+    </div>
+    <button mat-button color="accent" (click)="loadMore()" *ngIf="(totalCount > friends.length)">
+      Load More
+    </button>
+  </mat-card-content>
+</mat-card>

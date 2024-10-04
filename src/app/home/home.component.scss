@@ -1,0 +1,44 @@
+
+.home-container {
+  display: flex;
+  width: 100%; 
+}
+
+.friends-list {
+  flex: 0 0 30%; 
+  padding: 16px;
+  box-sizing: border-box; 
+  border-right: 1px solid #ddd; 
+  overflow-y: auto; 
+}
+
+.center-container {
+  flex: 0 0 40%; 
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  box-sizing: border-box; 
+}
+
+.add-post {
+  margin-bottom: 16px; 
+}
+
+.add-story{
+  margin-bottom: 16px;
+}
+
+
+.friends-suggestions {
+  margin-bottom: 16px;
+}
+
+.right-container {
+  flex: 0 0 30%; 
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  box-sizing: border-box; 
+  border-left: 1px solid #ddd; 
+  overflow-y: auto; 
+}

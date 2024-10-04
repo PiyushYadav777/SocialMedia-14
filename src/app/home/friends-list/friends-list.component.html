@@ -1,0 +1,24 @@
+
+<mat-card class="friends-list-card">
+  <mat-card-header>
+    <mat-card-title>Friends</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-spinner *ngIf="loading"></mat-spinner>
+    <div *ngIf="!loading && friends.length === 0">You have no friends yet.</div>
+    <mat-list *ngIf="!loading && friends.length > 0">
+      <mat-list-item *ngFor="let friend of limitedFriends">
+        <div class="friend-info">
+          <img class="friend-profile-pic" [src]="FILE_URL + friend.profile_img" alt="{{ friend.first_name + ' ' + friend.last_name }}">
+          <div class="friend-details">
+            <div mat-line>{{ friend.first_name }} {{ friend.last_name }}</div>
+          </div>
+        </div>
+      </mat-list-item>
+    </mat-list>
+    <br><br><br>
+    <div *ngIf="!loading && friends.length >= maxFriends">
+      <a mat-button class="view-all-button" [routerLink]="['/home/all-firends-list']">View all friends</a>
+    </div>
+  </mat-card-content>
+</mat-card>

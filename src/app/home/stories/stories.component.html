@@ -1,0 +1,50 @@
+<mat-card class="new-story-card">
+    <mat-card-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Story Content</mat-label>
+        <input matInput [(ngModel)]="storyContent" rows="3">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <mat-select [(ngModel)]="selectedTitle">
+          <mat-option *ngFor="let option of titleOptions" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <div class="file-input-row">
+        <div class="file-input-container">
+          <label for="imageInput" class="file-label">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-image-fill" viewBox="0 0 16 16">
+              <path d="M.002 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2zm1 9v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062zm5-6.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0" />
+            </svg>
+          </label>
+          <input id="imageInput" type="file" (change)="onImageChange($event)" accept="image/*" class="file-input">
+        </div>
+  
+        <div class="file-input-container">
+          <label for="videoInput" class="file-label">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-camera-reels-fill" viewBox="0 0 16 16">
+              <path d="M6 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+              <path d="M9 6a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+              <path d="M9 6h.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 7.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 16H2a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" />
+            </svg>
+          </label>
+          <input id="videoInput" type="file" (change)="onVideoChange($event)" accept="video/*" class="file-input">
+        </div>
+      </div>
+  
+      <div *ngIf="imagePreview" class="media-preview">
+        <img [src]="imagePreview" alt="Image Preview" class="media-preview-image">
+      </div>
+      <div *ngIf="videoPreview" class="media-preview">
+        <video [src]="videoPreview" controls class="media-preview-video"></video>
+      </div>
+  
+      <img class="button" width="100" height="100" src="https://img.icons8.com/bubbles/100/upload.png" (click)="createStory()" alt="upload"/>
+
+    </mat-card-content>
+  </mat-card>
+  

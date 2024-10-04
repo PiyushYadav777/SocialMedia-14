@@ -1,0 +1,139 @@
+.new-post-card {
+  margin: 16px;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  .mat-card-header {
+    margin-bottom: 16px;
+  }
+
+  .card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .mat-form-field {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  textarea {
+    resize: none; // Prevent resizing
+  }
+
+  button {
+    margin-top: 16px;
+  }
+
+  .file-input-row {
+    display: flex;
+    gap: 16px; /* Space between the image and video inputs */
+    margin-bottom: 16px;
+  }
+
+  .file-input-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .file-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: #007bff; /* Adjust color as needed */
+    background: #f8f9fa; /* Background color for better visibility */
+    border: 1px solid #ddd; /* Border around the label */
+    padding: 8px 12px;
+    border-radius: 4px;
+  }
+
+  .file-label svg {
+    margin-right: 8px;
+  }
+
+  .file-input {
+    display: none; /* Hides the default file input button */
+  }
+
+  .media-preview {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px; /* Space between image and video previews */
+  }
+
+  .media-preview-image, .media-preview-video {
+    max-width: 150px; /* Set maximum width for image and video previews */
+    max-height: 150px; /* Set maximum height for image and video previews */
+    border-radius: 8px;
+    object-fit: cover; /* Maintain aspect ratio and cover the area */
+  }
+
+  .media-preview-image {
+    max-width: 150px; /* Ensure image preview is appropriately sized */
+  }
+
+  .media-preview-video {
+    max-width: 150px; /* Ensure video preview is appropriately sized */
+  }
+}
+
+
+::ng-deep .toast-container {
+  position: fixed;
+  top: 80px;
+  right: 10px;
+  z-index: 1000;
+  pointer-events: none; // Ensure clicks pass through to elements below if needed
+}
+
+::ng-deep .toast {
+  min-width: 300px; 
+  padding: 16px; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  border-radius: 4px; 
+
+  .toast-title {
+    font-weight: bold;
+  }
+  
+  .toast-message {
+    margin-left: 8px; 
+  }
+  
+  .toast-icon {
+    font-size: 24px; 
+  }
+
+  &.toast-success {
+    background-color: #2e7d32; 
+    color: white; 
+  }
+
+  &.toast-error {
+    background-color: #c62828; 
+    color: white; 
+  }
+
+  &.toast-warning {
+    background-color: #ff8f00; 
+    color: white; 
+}
+
+::ng-deep .toast-success .toast-icon {
+  color: #fff; 
+}
+
+::ng-deep .toast-error .toast-icon {
+  color: #fff; 
+}
+
+::ng-deep .toast-warning .toast-icon {
+  color: #fff; 
+}
+}

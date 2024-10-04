@@ -1,0 +1,55 @@
+<mat-card class="feed-post" *ngFor="let post of displayedPosts">
+  <mat-card-header class="dfsdfsd">
+    <div class="profile-container">
+      <img class="profile-pic" [src]="FILE_URL + post.profile_img" alt="{{ post.first_name + ' ' + post.last_name }}">
+      <div class="profile-info">
+        <mat-card-title>{{ post.first_name + ' ' + post.last_name }}</mat-card-title>
+        <mat-card-subtitle>{{ post.category_name }}</mat-card-subtitle>
+      </div>
+      <button mat-icon-button [matMenuTriggerFor]="optionsMenu" *ngIf="post.user_id === userId">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #optionsMenu="matMenu">
+        <button mat-menu-item (click)="openEditDialog(post)">
+          <mat-icon>edit</mat-icon>
+          Edit
+        </button>
+        <button mat-menu-item (click)="confirmDelete(post)">
+          <mat-icon>delete</mat-icon>
+          Delete
+        </button>
+      </mat-menu>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{ post.desc }}</p>
+    <div class="media-container">
+      <img *ngIf="post.img" [src]="FILE_URL + post.img" class="post-image" />
+      <video *ngIf="post.video" [src]="FILE_URL + post.video" controls class="post-video"></video>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="viewPostDetails(post.id)">
+      <mat-icon>info</mat-icon>
+    </button>
+
+    <app-like [postId]="post.id" [userId]="userId" [isLiked]="post.is_liked == '1'"></app-like>
+
+    <button mat-button (click)="viewPostDetails(post.id)">
+      <mat-icon>comment</mat-icon>
+    </button>
+
+  </mat-card-actions>
+  <mat-card-content *ngIf="post.comments && post.comments.length > 0">
+    <mat-list>
+      <mat-list-item *ngFor="let comment of post.comments">
+        <img class="profile-pic" [src]="comment.userProfilePic" alt="{{ comment.userName }}">
+        <div mat-line>{{ comment.userName }}: {{ comment.text }}</div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+
+<button mat-button color="accent" (click)="loadMore()" *ngIf="canLoadMore">
+  Load More
+</button>

@@ -1,0 +1,16 @@
+<div mat-dialog-content>
+    <div class="text-end">
+        <button mat-button mat-dialog-close><mat-icon>close</mat-icon></button>
+      </div>
+    <mat-list>
+        <mat-list-item *ngFor="let notification of limitedNotifications">
+            <div>
+                <p><b>{{notification.notification_title}}:</b> {{notification.notification_desc}}</p>
+            </div>
+        </mat-list-item>
+    </mat-list>
+    <div class="text-end">
+
+    <button mat-button [routerLink]="['/home/notifications']" mat-dialog-close>view all notifications</button>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<h1 mat-dialog-title>Edit Post</h1>
+<div mat-dialog-content class="edit-post-dialog-content">
+  <!-- Title Field -->
+  <mat-form-field appearance="fill">
+    <mat-label>Title</mat-label>
+    <mat-select [(ngModel)]="post.title" required>
+      <mat-option *ngFor="let option of titleOptions" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Description Field -->
+  <mat-form-field appearance="fill">
+    <mat-label>Description</mat-label>
+    <textarea matInput [(ngModel)]="post.desc" required maxlength="50"></textarea>
+  </mat-form-field>
+
+  <!-- Media Upload Fields -->
+  <div class="file-inputs">
+    <div class="file-input-row">
+      <button mat-icon-button (click)="fileInputImage.click()" aria-label="Upload Image"
+        class="upload-button image-upload">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-image"
+          viewBox="0 0 16 16">
+          <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
+          <path
+            d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1z" />
+        </svg>
+      </button>
+      <input #fileInputImage type="file" (change)="onImageChange($event)" accept="image/*" style="display: none;">
+    </div>
+
+    <div class="file-input-row">
+      <button mat-icon-button (click)="fileInputVideo.click()" aria-label="Upload Video"
+        class="upload-button video-upload">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+          class="bi bi-camera-reels-fill" viewBox="0 0 16 16">
+          <path d="M6 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+          <path d="M9 6a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+          <path
+            d="M9 6h.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 7.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 16H2a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" />
+        </svg>
+      </button>
+      <input #fileInputVideo type="file" (change)="onVideoChange($event)" accept="video/*" style="display: none;">
+    </div>
+  </div>
+
+  <!-- Preview of Image -->
+  <div *ngIf="post.img || imagePreview" class="media-preview image-preview">
+    <img *ngIf="imagePreview" [src]="imagePreview" class="preview-image" alt="New Image">
+    <button *ngIf="imagePreview || post.img" mat-icon-button color="warn" (click)="removeImage()"
+      aria-label="Remove Image" class="remove-button">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </div>
+
+  <!-- Preview of Video -->
+  <div *ngIf="post.video || videoPreview" class="media-preview video-preview">
+    <video *ngIf="videoPreview" [src]="videoPreview" controls class="preview-video"></video>
+    <button *ngIf="post.video || videoPreview" (click)="removeVideo()" class="remove-button">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </div>
+</div>
+
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-button class="action-button cancel-button" (click)="onNoClick()">Cancel</button>
+  <button mat-button class="action-button save-button" (click)="editPost()">Save</button>
+</div>

@@ -1,0 +1,191 @@
+.user-profile-card {
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  
+    .mat-icon {
+      margin-right: 16px;
+      color: #007bff;
+    }
+  
+    .profile-actions {
+      margin-top: 20px;
+    }
+  
+    .profile-header {
+      display: flex;
+      align-items: center;
+      padding-bottom: 20px;
+    }
+  
+    .profile-image-container {
+      margin-right: 20px;
+    }
+  
+    .list-item-content {
+        flex: 1;
+      }
+      
+      .list-item-content strong {
+        display: block;
+        font-weight: bold;
+        color: #333;
+      }
+      
+      .list-item-content p {
+        margin: 0;
+        color: #555;
+      }
+  }
+  
+  
+  .feed-post {
+    margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  
+    .mat-card-header {
+      display: flex;
+      align-items: flex-start;
+      padding-bottom: 8px;
+    }
+  
+    .profile-container {
+      display: flex;
+      align-items: flex-start;
+      width: 100%;
+    }
+  
+    .profile-pic {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 12px;
+      object-fit: cover;
+    }
+  
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .mat-card-title {
+      font-weight: bold;
+    }
+  
+    .mat-card-subtitle {
+      color: rgba(0, 0, 0, 0.6);
+    }
+  
+    .post-image {
+      width: auto;
+      max-width: 500px;
+      max-height: 500px;
+      border-radius: 8px;
+      margin-top: 8px;
+      object-fit: cover;
+    }
+  
+    .post-video {
+      width: auto;
+      max-width: 300px;
+      max-height: 300px;
+      border-radius: 8px;
+      margin-top: 8px;
+    }
+  
+    .media-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+  
+    .mat-card-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+  
+      button {
+        text-transform: none;
+      }
+    }
+  
+    .mat-card-content {
+      margin-top: 8px;
+    }
+  
+    .mat-list {
+      margin-top: 16px;
+  
+      .mat-list-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+  
+        .profile-pic {
+          width: 30px;
+          height: 30px;
+          margin-right: 8px;
+        }
+  
+        .mat-line {
+          font-size: 14px;
+          color: rgba(0, 0, 0, 0.7);
+        }
+      }
+    }
+  }
+  
+  .file-input-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .file-input-container {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  
+  .file-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: #007bff;
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  .file-label svg {
+    margin-right: 8px;
+  }
+  
+  .file-input {
+    display: none;
+  }
+  
+  .profile-container {
+    display: flex;
+  }
+  
+  .user-post-wrapper {
+    width: 80%;
+  }
+  
+  .user-profile-card {
+    width: 25%;
+  }
+  
+  .user-profile-card .profile-image {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+  }

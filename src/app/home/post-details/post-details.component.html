@@ -1,0 +1,52 @@
+<mat-card *ngIf="post">
+  <mat-card-header>
+    <div class="profile-container">
+      <div class="profile-info">
+        <img class="profile-pic" [src]="FILE_URL + post.profile_img">
+        <br><br> <mat-card-title>{{ post.first_name + ' ' + post.last_name }}</mat-card-title>
+        <mat-card-subtitle>{{ post.title }}</mat-card-subtitle>
+      </div>
+    </div>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p>{{ post.desc }}</p>
+    <div class="media-container">
+      <img *ngIf="post.img" [src]="FILE_URL + post.img" class="post-image" />
+      <video *ngIf="post.video" [src]="post.video" controls class="post-video"></video>
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <app-like [postId]="post.id" [userId]="userId" [isLiked]="post.is_liked == '1'"></app-like>
+
+    <button mat-button (click)="toggleInput()" *ngIf="!isInputVisible">
+      <mat-icon>comment</mat-icon>
+    </button>
+
+    <div *ngIf="isInputVisible">
+      <mat-form-field appearance="fill">
+        <mat-label>Comment</mat-label>
+        <textarea matInput [(ngModel)]="commentText" rows="1"></textarea>
+      </mat-form-field>
+      <button mat-button color="primary" (click)="addComment()"><mat-icon>send</mat-icon></button>
+      <button mat-button (click)="toggleInput()">Cancel</button>
+    </div>
+  </mat-card-actions>
+
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let comment of comments">
+        <img class="profile-pic2" [src]="FILE_URL + comment.profile_img">
+        <div class="comment-text">
+          <span class="comment-author">{{ comment.first_name }} {{ comment.last_name }}</span>
+          <span class="comment-content">{{ comment.comment_text }}</span>
+        </div>
+        <div class="comment-actions">
+          <button mat-button (click)="editComment(comment)"><mat-icon>edit</mat-icon></button>
+          <button mat-button (click)="confirmDeleteComment(comment.id)"><mat-icon>delete</mat-icon></button>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

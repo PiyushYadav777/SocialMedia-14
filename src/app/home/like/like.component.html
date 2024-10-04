@@ -1,0 +1,8 @@
+<!-- <button mat-button (click)="liked ? dislikePost() : likePost()">
+    <mat-icon>{{ liked ? 'thumb_down' : 'thumb_up' }}</mat-icon>
+    {{ liked ? 'Unlike' : 'Like' }}
+  </button> -->
+
+<button mat-button (click)="liked ? dislikePost() : likePost()">
+  <mat-icon [ngClass]="{'liked': liked}">{{ liked ? 'thumb_up' : 'thumb_up' }}</mat-icon>
+</button>

@@ -1,0 +1,30 @@
+<mat-card class="single-story-card">
+  <div class="stories-container">
+    <img routerLink="add-story" width="100" height="100" src="https://img.icons8.com/clouds/100/add.png" />
+    <div class="story-item" *ngFor="let story of stories" (click)="openPopup(story)">
+      <div class="story-thumbnail">
+        <img [src]="FILE_URL + story.profile_img" />
+      </div>
+    </div>
+  </div>
+</mat-card>
+
+<div class="story-overlay" *ngIf="selectedStory" (click)="closePopup()">
+  <div class="popup-content" (click)="$event.stopPropagation()">
+    <span class="close-btn" (click)="closePopup()">×</span>
+    
+    <div class="user-name">
+      <h4>{{ getUserName() }}</h4>
+    </div>
+
+    <mdb-carousel [controls]="true" [indicators]="true" [animation]="'fade'" class="modal-carousel">
+      <mdb-carousel-item *ngFor="let item of getCurrentStory()">
+        <img *ngIf="item.img" [src]="FILE_URL + item.img" class="story-image" />
+        <div class="carousel-caption d-none d-md-block">
+          <h5 class="desc">{{ item.desc }}</h5>
+        </div>
+      </mdb-carousel-item>
+    </mdb-carousel>
+
+  </div>
+</div>

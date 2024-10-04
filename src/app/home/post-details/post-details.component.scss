@@ -1,0 +1,231 @@
+mat-card {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+mat-card-title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+mat-card-subtitle {
+  font-size: 1em;
+  color: #666;
+}
+
+mat-card-content {
+  p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 16px;
+  }
+
+  .media-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .post-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+
+    .post-video {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+  }
+}
+
+.error-snackbar {
+  background-color: #f44336;
+  color: #fff;
+}
+
+/* Styles for comments */
+mat-list-item {
+  display: flex;
+  align-items: flex-start;
+  /* Ensure items are aligned at the start */
+  margin-bottom: 8px;
+}
+
+.profile-pic2 {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 8px;
+  /* Space between the image and the text */
+}
+
+.comment-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-author {
+  font-weight: bold;
+}
+
+.comment-content {
+  font-size: 0.9em;
+  /* Adjust text size as needed */
+  color: #333;
+}
+
+@media (max-width: 600px) {
+  mat-card {
+    padding: 12px;
+  }
+
+  .profile-info {
+    margin-left: 8px;
+  }
+
+  mat-card-title {
+    font-size: 1.1em;
+  }
+
+  mat-card-subtitle {
+    font-size: 0.9em;
+  }
+
+  p {
+    font-size: 0.9em;
+  }
+
+  .profile-pic2 {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+mat-list-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid #e0e0e0;
+
+  .profile-pic2 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 16px;
+    margin-bottom: 22px;
+  }
+
+  .comment-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    .comment-author {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .comment-content {
+      color: #555;
+    }
+  }
+
+  .comment-actions {
+    display: flex;
+    gap: 8px;
+
+    button {
+      color: #007bff; // Blue color for buttons
+
+      &:hover {
+        background-color: #f1f1f1; 
+      }
+
+      mat-icon {
+        font-size: 20px; 
+      }
+    }
+  }
+}
+
+.comments-section {
+  margin-top: 16px;
+}
+
+
+
+
+::ng-deep .toast-container {
+  position: fixed;
+  top: 80px;
+  right: 10px;
+  z-index: 1000;
+  pointer-events: none; 
+}
+
+::ng-deep .toast {
+  min-width: 300px; 
+  padding: 16px; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  border-radius: 4px; 
+
+  .toast-title {
+    font-weight: bold;
+  }
+  
+  .toast-message {
+    margin-left: 8px; 
+  }
+  
+  .toast-icon {
+    font-size: 24px; 
+  }
+
+  &.toast-success {
+    background-color: #2e7d32; 
+    color: white; 
+  }
+
+  &.toast-error {
+    background-color: #c62828; 
+    color: white; 
+  }
+
+  &.toast-warning {
+    background-color: #ff8f00; 
+    color: white; 
+}
+
+::ng-deep .toast-success .toast-icon {
+  color: #fff; 
+}
+
+::ng-deep .toast-error .toast-icon {
+  color: #fff; 
+}
+
+::ng-deep .toast-warning .toast-icon {
+  color: #fff; 
+}
+}

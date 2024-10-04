@@ -1,0 +1,186 @@
+// .profile-pic {
+//     width: 40px; /* Adjust size as needed */
+//     height: 40px;
+//     border-radius: 50%;
+//     margin-right: 16px; /* Space between image and text */
+//     object-fit: cover; /* Maintain aspect ratio and fill the container */
+//   }
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    margin-right: 16px; /* Space between image/icon and text */
+  }
+  
+  .profile-pic {
+    width: 40px; /* Adjust size as needed */
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;  
+  }
+  
+  .user-info {
+    flex: 1; 
+  }
+  
+  .friends-suggestions-card {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #fff;
+  position: relative; 
+
+  mat-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 20px;
+
+    mat-card-title {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #333;
+    }
+
+    button {
+      color: #33689c;
+      font-weight: 500;
+      &:hover {
+        color: #0d47a1;
+      }
+    }
+  }
+
+  mat-card-content {
+    padding: 10px 20px;
+    position: relative; 
+
+    .view-all-button {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      color: rgb(54, 34, 34);
+      padding: 8px 16px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+
+      mat-icon {
+        margin-left: 8px;
+        padding: 10px;
+      }
+    }
+  }
+}
+
+mat-list {
+  .mat-list-item {
+    // border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .profile-container {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+
+      .profile-pic {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 10px;
+      }
+
+      mat-icon {
+        font-size: 40px;
+        color: #757575;
+      }
+    }
+
+    .user-info {
+      flex: 1;
+
+      mat-line {
+        font-size: 1em;
+        color: #333;
+      }
+    }
+
+    button {
+      margin-left: auto;
+      height: 36px;
+    }
+  }
+}
+
+mat-spinner {
+  display: block;
+  margin: 20px auto;
+}
+
+
+::ng-deep .toast-container {
+  position: fixed;
+  top: 80px;
+  right: 10px;
+  z-index: 1000;
+  pointer-events: none; // Ensure clicks pass through to elements below if needed
+}
+
+::ng-deep .toast {
+  min-width: 300px; 
+  padding: 16px; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  border-radius: 4px; 
+
+  .toast-title {
+    font-weight: bold;
+  }
+  
+  .toast-message {
+    margin-left: 8px; 
+  }
+  
+  .toast-icon {
+    font-size: 24px; 
+  }
+
+  &.toast-success {
+    background-color: #2e7d32; 
+    color: white; 
+  }
+
+  &.toast-error {
+    background-color: #c62828; 
+    color: white; 
+  }
+
+  &.toast-warning {
+    background-color: #ff8f00; 
+    color: white; 
+}
+
+::ng-deep .toast-success .toast-icon {
+  color: #fff; 
+}
+
+::ng-deep .toast-error .toast-icon {
+  color: #fff; 
+}
+
+::ng-deep .toast-warning .toast-icon {
+  color: #fff; 
+}
+}

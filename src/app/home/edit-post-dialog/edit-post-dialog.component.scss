@@ -1,0 +1,138 @@
+.edit-post-dialog-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  // Styling form fields
+  mat-form-field {
+    width: 100%;
+  }
+  
+  // File input rows styling
+  .file-inputs {
+    display: flex;
+    gap: 16px;
+  }
+  
+  // File input row styling
+  .file-input-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;  // Adjust the gap between buttons if needed
+  }
+  
+  // File input button styling
+  .upload-button {
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    padding: 8px;
+    transition: background-color 0.3s;
+    
+    &:hover {
+      background-color: #d3d3d3;
+    }
+  }
+  
+  .image-upload {
+    color: #ff5722;
+  }
+  
+  .video-upload {
+    color: #2196f3;
+  }
+  
+  .media-preview {
+    position: relative;
+  }
+  
+  .image-preview {
+    text-align: center;
+  }
+  
+  .preview-image {
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .video-preview {
+    text-align: center;
+  }
+  
+  .preview-video {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 8px;
+  }
+  
+  .remove-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    padding: 6px;
+    color: #ff5722;
+    transition: background-color 0.3s, color 0.3s;
+  
+    &:hover {
+      background-color: #ff5722;
+      color: #ffffff;
+    }
+  }
+  
+  // Dialog actions styling
+  .dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+  
+  .action-button {
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-weight: bold;
+  }
+  
+  .cancel-button {
+    background-color: #f44336;
+    color: white;
+  
+    &:hover {
+      background-color: #d32f2f;
+    }
+  }
+  
+  .save-button {
+    background-color: #4caf50;
+    color: white;
+  
+    &:hover {
+      background-color: #388e3c;
+    }
+  }
+
+  // Snackbar Container Styling
+.snackbar-container {
+  position: fixed;  // Fix position to keep it on the screen
+  top: 10px;        // Distance from the top
+  right: 10px;      // Distance from the right
+  color: white;
+  z-index: 1000;    // Make sure it's above other content
+
+  &.error {
+    background-color: #c62828 !important;  // Error color
+  }
+
+  &.success {
+    background-color: #2e7d32 !important;  // Success color
+  }
+
+  &.warning {
+    background-color: #ff8f00 !important;  // Warning color
+  }
+}
+
+  
